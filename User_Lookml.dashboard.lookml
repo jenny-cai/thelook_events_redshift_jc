@@ -1,4 +1,4 @@
-- dashboard: users_lookml
+- dashboard: users
   title: Users
   layout: newspaper
   elements:
