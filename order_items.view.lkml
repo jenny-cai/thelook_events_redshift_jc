@@ -136,6 +136,13 @@ view: order_items {
     value_format_name: usd_0
   }
 
+  measure: total_sale_price {
+    type:  sum
+    sql: ${sale_price} ;;
+    value_format_name: usd_0
+  }
+
+
   measure: min_sales_price {
     type: min
     sql: ${sale_price} ;;
