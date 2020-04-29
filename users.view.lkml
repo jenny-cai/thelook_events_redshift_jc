@@ -56,6 +56,7 @@ view: users {
   }
 
   dimension: gender {
+    label: "Gender"
     type: string
     sql: ${TABLE}.gender ;;
     tags: ["gender"]
