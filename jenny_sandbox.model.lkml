@@ -13,11 +13,18 @@ datagroup: 4_hour {
   max_cache_age: "4 hours"
 }
 
+access_grant: test_value {
+  allowed_values: ["2"]
+  user_attribute: test_multiple_values
+}
+
 persist_with: jenny_default_datagroup
 
 explore: bsandell {}
 
-explore: company_list {}
+explore: company_list {
+  required_access_grants: [test_value]
+}
 
 explore: distribution_centers {}
 
