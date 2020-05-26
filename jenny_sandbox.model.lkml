@@ -5,7 +5,7 @@ include: "*.view"
 include: "*.dashboard"
 
 datagroup: jenny_default_datagroup {
-  # sql_trigger: SELECT MAX(id) FROM etl_log;;
+  sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
 }
 
@@ -61,10 +61,24 @@ explore: orders {
     -inventory_items.product_department,
     -inventory_items.product_distribution_center_id
     ]
+
+  aggregate_table: rollup__order_items_created_month__products_brand {
+    query: {
+      dimensions: [order_items.created_month, products.brand]
+      measures: [order_items.total_sales]
+      timezone: "America/New_York"
+    }
+
+    materialization: {
+      datagroup_trigger: jenny_default_datagroup
+    }
+  }
+
+
   join: order_items {
     type: left_outer
     sql_on: ${orders.order_id} = ${order_items.order_id} ;;
-    relationship: many_to_one
+    relationship: one_to_many
   }
 
   join: users {
