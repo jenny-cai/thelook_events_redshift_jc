@@ -1,6 +1,6 @@
 connection: "thelook_events_redshift"
 
-include: "*.view.lkml"                # include all views in the views/ folder in this project
+include: "/Views/*.view.lkml"                # include all views in the views/ folder in this project
 
 
 explore: bind_all_filters {

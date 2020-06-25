@@ -47,7 +47,8 @@ view: inventory_items {
   }
 
   dimension: product_id {
-    type: number
+    type: string
+    value_format_name: decimal_0
     # hidden: yes
     sql: ${TABLE}.product_id ;;
   }

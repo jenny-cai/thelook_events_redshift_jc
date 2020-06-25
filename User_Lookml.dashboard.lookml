@@ -12,7 +12,6 @@
     height: 2
   - name: Users Table
     title: Users Table
-    model: jenny_sandbox
     explore: users
     type: table
     fields: [users.id, users.first_name, users.last_name, users.gender, users.age,
@@ -26,7 +25,6 @@
     height: 6
   - name: Top 10 States by User Count
     title: Top 10 States by User Count
-    model: jenny_sandbox
     explore: users
     type: looker_column
     fields: [users.state, users.count]
@@ -70,7 +68,6 @@
     height: 6
   - name: Users by Age Group
     title: Users by Age Group
-    model: jenny_sandbox
     explore: users
     type: looker_bar
     fields: [users.age_range, users.count]
@@ -115,7 +112,6 @@
     height: 6
   - name: Total Sales by Age
     title: Total Sales by Age
-    model: jenny_sandbox
     explore: orders
     type: looker_scatter
     fields: [users.age, order_items.total_sales]
@@ -155,7 +151,6 @@
     height: 6
   - name: Users across the country
     title: Users across the country
-    model: jenny_sandbox
     explore: orders
     type: looker_map
     fields: [users.state, users.count]

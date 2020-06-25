@@ -7,6 +7,11 @@ view: order_items {
     sql: ${TABLE}.id ;;
   }
 
+  dimension: company {
+    type: string
+    sql: ${products.brand} ;;
+  }
+
   dimension_group: created {
     type: time
     timeframes: [
@@ -15,6 +20,7 @@ view: order_items {
       date,
       week,
       month,
+      month_num,
       quarter,
       year
     ]
@@ -165,6 +171,26 @@ view: order_items {
     type: number
     sql: 1.0* ${total_sales}/${count_orders};;
     value_format_name: usd
+  }
+
+  measure: start_of_year_sum_sales_price{
+    type: sum
+    sql: ${sale_price} ;;
+    value_format_name: usd
+    filters: [created_month_num: "1"]
+  }
+
+  measure: end_of_year_sum_sales_price{
+    type: sum
+    sql: ${sale_price} ;;
+    value_format_name: usd
+    filters: [created_month_num: "12"]
+  }
+
+  measure: yearly_attrition {
+    type: number
+    sql: (${end_of_year_sum_sales_price} - ${start_of_year_sum_sales_price}) / NULLIF(${start_of_year_sum_sales_price},0) ;;
+    value_format_name: decimal_2
   }
 
   # ----- Sets of fields for drilling ------

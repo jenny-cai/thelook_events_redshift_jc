@@ -5,6 +5,10 @@ view: users {
     primary_key: yes
     type: number
     sql: ${TABLE}.id ;;
+    link: {
+      label: "Link to Dashboard A"
+      url: "/dashboards/{{ _model._name }}::users"
+    }
   }
 
   dimension: age {

@@ -1,8 +1,9 @@
 connection: "thelook_events_redshift"
 
 # include all the views
-include: "*.view"
-include: "*.dashboard"
+include: "/Views/*.view"
+include: "/*.dashboard"
+
 
 datagroup: jenny_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
@@ -20,7 +21,7 @@ access_grant: test_value {
 
 persist_with: jenny_default_datagroup
 
-explore: bsandell {}
+
 
 explore: company_list {
   required_access_grants: [test_value]
@@ -94,6 +95,11 @@ explore: orders {
 
 
 explore: order_items {
+  join: order_items_yearly_aggregation {
+    type: left_outer
+    sql_on: ${order_items.created_year} = ${order_items_yearly_aggregation.created_year} ;;
+    relationship: many_to_one
+  }
   join: users {
     type: left_outer
     sql_on: ${order_items.user_id} = ${users.id} ;;
