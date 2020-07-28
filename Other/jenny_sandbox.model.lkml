@@ -24,7 +24,6 @@ access_grant: test_value {
 persist_with: jenny_default_datagroup
 
 
-
 explore: company_list {
   required_access_grants: [test_value]
 }
@@ -128,6 +127,7 @@ explore: order_items {
 }
 
 explore: products {
+  sql_always_where: ${brand} in ({{ _user_attributes['brand'] }}) ;;
   join: distribution_centers {
     type: left_outer
     sql_on: ${products.distribution_center_id} = ${distribution_centers.id} ;;
