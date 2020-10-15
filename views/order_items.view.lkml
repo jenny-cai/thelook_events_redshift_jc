@@ -4,13 +4,13 @@ view: order_items {
 
   filter: as_of_date {
     type: string
-    suggest_dimension: dt_dates.date
+    suggest_dimension: dt_dates.datestring
     suggest_explore: dt_dates
   }
 
   parameter: max_date {
     type: string
-    suggest_dimension: dt_dates.date
+    suggest_dimension: dt_dates.datestring
     suggest_explore: dt_dates
   }
 
@@ -19,10 +19,10 @@ view: order_items {
     type: number
     sql: ${TABLE}.ID ;;
   }
-  measure: max_date_measure {
-    type: date
-    sql: max(${created_date}) ;;
-  }
+#   measure: max_date_measure {
+#     type: date
+#     sql: max(${created_date}) ;;
+#   }
   dimension_group: created {
     type: time
     timeframes: [
@@ -49,6 +49,29 @@ view: order_items {
       year
     ]
     sql: ${TABLE}.DELIVERED_AT ;;
+  }
+
+  parameter: test {
+    type: unquoted
+    allowed_value: {
+      label: "Test"
+      value: "TeSt"
+    }
+    allowed_value: {
+      label: "Baseline"
+      value: "baseline"
+    }
+  }
+
+  dimension: test_liquid {
+    type: string
+    sql: {% if test._parameter_value == 'baseline' %} '{{ "it WoRked" | downcase }}' {% else %} 'didnt work' {% endif %} ;;
+  }
+
+  filter: test_filter {
+    type: string
+    suggest_dimension: test.test
+    suggest_explore: order_items
   }
 
   dimension: inventory_item_id {
@@ -114,4 +137,5 @@ view: order_items {
     sql: ${sale_price} ;;
     value_format_name: usd_0
   }
+
 }
