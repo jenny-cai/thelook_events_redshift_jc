@@ -2,17 +2,7 @@ view: order_items {
   sql_table_name: public.ORDER_ITEMS ;;
   drill_fields: [id]
 
-  filter: as_of_date {
-    type: string
-    suggest_dimension: dt_dates.datestring
-    suggest_explore: dt_dates
-  }
 
-  parameter: max_date {
-    type: string
-    suggest_dimension: dt_dates.datestring
-    suggest_explore: dt_dates
-  }
 
   dimension: id {
     primary_key: yes
@@ -50,29 +40,6 @@ view: order_items {
     ]
     sql: ${TABLE}.DELIVERED_AT ;;
   }
-
-  parameter: test {
-    type: unquoted
-    allowed_value: {
-      label: "Test"
-      value: "TeSt"
-    }
-    allowed_value: {
-      label: "Baseline"
-      value: "baseline"
-    }
-  }
-
-  dimension: test_liquid {
-    type: string
-    sql: {% if test._parameter_value == 'baseline' %} '{{ "it WoRked" | downcase }}' {% else %} 'didnt work' {% endif %} ;;
-  }
-
-  # filter: test_filter {
-  #   type: string
-  #   suggest_dimension: test.test
-  #   suggest_explore: order_items
-  # }
 
   dimension: inventory_item_id {
     type: number
