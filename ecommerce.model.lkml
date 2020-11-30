@@ -10,3 +10,5 @@ explore: order_items {
   #   type: cross
   # }
 }
+
+explore: products {}

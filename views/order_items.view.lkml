@@ -68,11 +68,11 @@ view: order_items {
     sql: {% if test._parameter_value == 'baseline' %} '{{ "it WoRked" | downcase }}' {% else %} 'didnt work' {% endif %} ;;
   }
 
-  filter: test_filter {
-    type: string
-    suggest_dimension: test.test
-    suggest_explore: order_items
-  }
+  # filter: test_filter {
+  #   type: string
+  #   suggest_dimension: test.test
+  #   suggest_explore: order_items
+  # }
 
   dimension: inventory_item_id {
     type: number
