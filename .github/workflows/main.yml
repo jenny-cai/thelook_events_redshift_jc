@@ -21,7 +21,7 @@ jobs:
     - name: Commit changes (e.g., issues.md)
       run: |
         git add .
-        git config --local user.email "action@github.com"
+        git config --local user.email "jennycai@google.com"
         git config --local user.name "GitHub Action"
         git commit -m "LAMS feedback" -a
     - name: Push changes
