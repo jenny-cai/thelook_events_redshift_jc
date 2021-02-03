@@ -54,28 +54,28 @@ view: users {
     sql: ${TABLE}.GENDER ;;
   }
 
-  dimension: gender_edit {
-    type: string
-    sql: substring(${TABLE}.GENDER,1,1) ;;
-  }
+  # dimension: gender_edit {
+  #   type: string
+  #   sql: substring(${TABLE}.GENDER,1,1) ;;
+  # }
 
-  parameter: selector {
-    type: unquoted
-    allowed_value: {
-      label: "Gender"
-      value: "gender_edit"
-    }
-    allowed_value: {
-      label: "Country"
-      value: "country"
-    }
-  }
+  # parameter: selector {
+  #   type: unquoted
+  #   allowed_value: {
+  #     label: "Gender"
+  #     value: "gender_edit"
+  #   }
+  #   allowed_value: {
+  #     label: "Country"
+  #     value: "country"
+  #   }
+  # }
 
-  dimension: dynamic_dimension {
-    type: string
-    sql: {% if selector._parameter_value == "gender_edit" %} ${gender_edit}
-    {% else %} ${country} {% endif %};;
-  }
+  # dimension: dynamic_dimension {
+  #   type: string
+  #   sql: {% if selector._parameter_value == "gender_edit" %} ${gender_edit}
+  #   {% else %} ${country} {% endif %};;
+  # }
 
   dimension: last_name {
     type: string
@@ -109,7 +109,7 @@ view: users {
 
   measure: count {
     type: count
-    drill_fields: [first_name, gender_edit]
+    # drill_fields: [first_name, gender_edit]
   }
 
   measure: sum_age {
@@ -119,16 +119,16 @@ view: users {
   }
 
 
-  measure: dynamic_measure {
-    type: number
-    sql: {% if selector._parameter_value == "gender_edit" %} ${count}
-    {% else %} ${sum_age} {% endif %}  ;;
-    value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0"
-    html:
-    {% if selector._parameter_value == "gender_edit" %}
-      ${{ value }}
-    {% else %}
-    {{ rendered_value }}%
-    {% endif %};;
-}
+#   measure: dynamic_measure {
+#     type: number
+#     sql: {% if selector._parameter_value == "gender_edit" %} ${count}
+#     {% else %} ${sum_age} {% endif %}  ;;
+#     value_format: "[>=1000000]0.00,,\"M\";[>=1000]0.00,\"K\";0"
+#     html:
+#     {% if selector._parameter_value == "gender_edit" %}
+#       ${{ value }}
+#     {% else %}
+#     {{ rendered_value }}%
+#     {% endif %};;
+# }
 }

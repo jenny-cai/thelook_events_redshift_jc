@@ -3,7 +3,7 @@ view: order_items {
 
 
 
-  dimension: pk_id {
+  dimension: pk1_order_item_id {
     primary_key: yes
     type: number
     sql: ${TABLE}.ID ;;
