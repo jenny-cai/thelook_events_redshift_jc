@@ -1,10 +1,10 @@
 explore: users {}
 view: users {
   sql_table_name: public.USERS ;;
-  drill_fields: [id]
 
-  dimension: id {
+  dimension: pk1_user_id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.ID ;;
   }

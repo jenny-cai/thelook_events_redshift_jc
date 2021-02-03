@@ -1,10 +1,9 @@
 view: order_items {
   sql_table_name: public.ORDER_ITEMS ;;
 
-
-
   dimension: pk1_order_item_id {
     primary_key: yes
+    hidden: yes
     type: number
     sql: ${TABLE}.ID ;;
   }
