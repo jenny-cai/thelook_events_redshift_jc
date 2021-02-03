@@ -2,7 +2,7 @@ explore: users {}
 view: users {
   sql_table_name: public.USERS ;;
 
-  dimension: pk1_user_id {
+  dimension: user_id {
     primary_key: yes
     hidden: yes
     type: number
