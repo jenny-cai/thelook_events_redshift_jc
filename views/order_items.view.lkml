@@ -1,10 +1,9 @@
 view: order_items {
   sql_table_name: public.ORDER_ITEMS ;;
-  drill_fields: [id]
 
 
 
-  dimension: id {
+  dimension: pk_id {
     primary_key: yes
     type: number
     sql: ${TABLE}.ID ;;
@@ -97,7 +96,6 @@ view: order_items {
 
   measure: count {
     type: count
-    drill_fields: [id, users.last_name, users.first_name, users.id]
   }
   measure: sum_sale_price {
     type: sum
