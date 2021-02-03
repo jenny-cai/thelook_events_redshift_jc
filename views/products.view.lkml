@@ -1,7 +1,7 @@
 view: products {
   sql_table_name: public.PRODUCTS ;;
 
-  dimension: pk1_product_id {
+  dimension: product_id {
     primary_key: yes
     hidden: yes
     type: number
