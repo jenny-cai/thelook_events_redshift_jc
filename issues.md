@@ -1,14 +1,14 @@
 ---
-title: Issues - 3⛔ 30⚠️  
+title: Issues - 6⛔ 30⚠️  
 navigation: true
 ---
 
 <p style="text-align:right;color:#cccs">
-Generated Wed, 03 Feb 2021 18:48:00 GMT
+Generated Wed, 03 Feb 2021 18:49:15 GMT
 </p>
 
 <details style="margin-left: 3em" open="open">
-<summary style="margin-left:-1em;border-bottom:solid 1px #333;font-size:200%;">Issues (3⛔30⚠️)</summary>
+<summary style="margin-left:-1em;border-bottom:solid 1px #333;font-size:200%;">Issues (6⛔30⚠️)</summary>
 
 <details style="margin-left: 3em" open="open">
 <summary style="margin-left:-1em;border-bottom:solid 1px #333;font-size:170%;"><a href="https://looker-open-source.github.io/look-at-me-sideways/rules.html#f3">F3</a>. Count fields filtered (3⛔)</summary>
@@ -194,6 +194,31 @@ Generated Wed, 03 Feb 2021 18:48:00 GMT
 <td>⚠️</td>
 <td>view:users&#47;field:sum_age </td>
 <td>view:users/field:sum_age is missing a description</td>
+</tr></tbody></table></details>
+<details style="margin-left: 3em" open="open">
+<summary style="margin-left:-1em;border-bottom:solid 1px #333;font-size:170%;"><a href="https://looker-open-source.github.io/look-at-me-sideways/rules.html#k1">K1</a>. Primary keys required (3⛔)</summary>
+
+<table>
+<thead><tr>
+<th>Level</th>
+<th>Location</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>⛔</td>
+<td>view: order_items </td>
+<td>No Primary Key Dimensions found in order_items</td>
+</tr>
+<tr>
+<td>⛔</td>
+<td>view: products </td>
+<td>No Primary Key Dimensions found in products</td>
+</tr>
+<tr>
+<td>⛔</td>
+<td>view: users </td>
+<td>No Primary Key Dimensions found in users</td>
 </tr></tbody></table></details></details>
 
 ---
