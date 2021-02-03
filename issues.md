@@ -4,7 +4,7 @@ navigation: true
 ---
 
 <p style="text-align:right;color:#cccs">
-Generated Wed, 03 Feb 2021 18:26:05 GMT
+Generated Wed, 03 Feb 2021 18:43:16 GMT
 </p>
 
 <details style="margin-left: 3em" open="open">
@@ -72,8 +72,8 @@ Generated Wed, 03 Feb 2021 18:26:05 GMT
 <tbody>
 <tr>
 <td>⚠️</td>
-<td>view:order_items&#47;field:id </td>
-<td>view:order_items/field:id is missing a description</td>
+<td>view:order_items&#47;field:pk_id </td>
+<td>view:order_items/field:pk_id is missing a description</td>
 </tr>
 <tr>
 <td>⚠️</td>
