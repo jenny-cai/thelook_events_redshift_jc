@@ -14,6 +14,7 @@ datagroup: jenny_default_datagroup {
 # this is my new change:
 # this is my next change
 # this is my third change
+# release 1.0
 datagroup: 4_hour {
   max_cache_age: "4 hours"
 }
