@@ -4,7 +4,7 @@ connection: "thelook_events_redshift"
 include: "/Views/*.view"
 include: "/*.dashboard"
 
-#making a change 4/21
+#making a change 4/21 in the master branch
 datagroup: jenny_default_datagroup {
   # sql_trigger: SELECT MAX(id) FROM etl_log;;
   max_cache_age: "1 hour"
