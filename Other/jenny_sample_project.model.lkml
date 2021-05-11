@@ -13,7 +13,6 @@ connection: "thelook_events_redshift"
 
 # include all the views
 include: "/Views/*.view"
-include: "/*.dashboard"
 
 #making a change 4/21 in the master branch
 datagroup: jenny_default_datagroup {
@@ -135,37 +134,8 @@ explore: order_items {
   }
 }
 
-explore: products {
-  sql_always_where: ${brand} in ({{ _user_attributes['brand'] }}) ;;
-  join: distribution_centers {
-    type: left_outer
-    sql_on: ${products.distribution_center_id} = ${distribution_centers.id} ;;
-    relationship: many_to_one
-  }
-}
+
 
 explore: users {
   persist_with: 4_hour
-}
-
-explore: female_users {
-  from: users
-  persist_with: 4_hour
-  always_filter: {
-    filters: {
-      field: gender
-      value: "Female"
-    }
-  }
-}
-
-explore: male_users {
-  from: users
-  persist_with: 4_hour
-  always_filter: {
-    filters: {
-      field: gender
-      value: "Male"
-    }
-  }
 }
