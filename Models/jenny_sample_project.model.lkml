@@ -4,6 +4,7 @@ connection: "thelook_events_redshift"
 
 
 #comment
+#merge to master branch
 
 
 
