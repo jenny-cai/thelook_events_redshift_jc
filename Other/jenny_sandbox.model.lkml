@@ -1,5 +1,16 @@
 connection: "thelook_events_redshift"
 
+
+
+
+#comment
+
+
+
+
+
+
+
 # include all the views
 include: "/Views/*.view"
 include: "/*.dashboard"
